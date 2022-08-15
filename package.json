@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "bookmarklet": "^3.0.0",
+    "terser-webpack-plugin": "^5.3.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "scripts": {
+    "build": "webpack && npx bookmarklet ./dist/main.js > ./dist/bookmarklet.js && rm ./dist/main.js"
+  }
+}
