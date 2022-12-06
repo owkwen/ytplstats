@@ -104,11 +104,12 @@ function buildTimeDashboard()
     grp.sort((a,b) => b.nbr - a.nbr);
 
 
-    stats = document.getElementById('stats');
+    stats = document.querySelectorAll('.immersive-header-content .metadata-wrapper')[0];
     if(!document.getElementById("ytplstatslibrary"))
     {
         let dashboard = document.createElement('div');
         dashboard.id = "ytplstatslibrary";
+        dashboard.style.cssText += 'font-size:1.4rem;';
         stats.appendChild(dashboard);
     }
 
