@@ -69,14 +69,18 @@ function buildTimeDashboard()
 
     playlist_elements.forEach(function(element, index){
         const block = element.querySelector('ytd-channel-name a');
-        let link = block.href;
-        let name = block.innerHTML;
-        let duration = element.querySelector('ytd-thumbnail-overlay-time-status-renderer span#text').innerHTML.replace(/\s+/g, ' ').trim();
-        let seconds = getDurationInSeconds(duration);
-        total_time += seconds;
-        v2.push({'name' : name, 'duration':duration, 'seconds':seconds, 'account': link});
+        if(block)
+        {
+            let link = block.href;
+            let blockname = block.innerHTML;
 
-        element.setAttribute('ytplstatslibrary-name', name);
+            let duration = element.querySelector('ytd-thumbnail-overlay-time-status-renderer span#text').innerHTML.replace(/\s+/g, ' ').trim();
+            let seconds = getDurationInSeconds(duration);
+            total_time += seconds;
+            v2.push({'name' : blockname, 'duration':duration, 'seconds':seconds, 'account': link});
+
+            element.setAttribute('ytplstatslibrary-name', blockname);
+        }
     });
 
 
